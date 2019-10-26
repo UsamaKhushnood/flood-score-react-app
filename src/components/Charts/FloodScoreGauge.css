@@ -1,0 +1,12 @@
+#chart {
+  max-width: 650px;
+  margin: 35px auto;
+}
+/* path {
+  stroke: black;
+} */
+
+.droplet {
+  width: 15px;
+  margin-top: -35px;
+}

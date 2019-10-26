@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "default": "flood-score",
+    "staging": "flood-score"
+  }
+}
