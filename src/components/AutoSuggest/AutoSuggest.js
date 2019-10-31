@@ -63,19 +63,19 @@ class AutoSuggest extends React.Component {
     this.props.firebase.doFirestoreGet("index")
       .then((index) => {
         // console.log('index', index)
-        // const { addresses } = index[0]
-        // console.log('addresses', addresses)
-        // this.setState({ addresses })
+        const { addresses } = index[0]
+        console.log('addresses', addresses)
+        this.setState({ addresses })
       })
   }
 
   validateValue = () => {
-    // const { value, addresses } = this.state
-    // if (addresses.includes(value)) {
-    //   return true
-    // } else {
-    //   return false
-    // }
+    const { value, addresses } = this.state
+    if (addresses.includes(value)) {
+      return true
+    } else {
+      return false
+    }
   }
 
   onChange = (event, { newValue }) => {

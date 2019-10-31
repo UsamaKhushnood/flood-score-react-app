@@ -45,7 +45,7 @@ class StripeBox extends Component {
       console.log('do charge error:', error)
     })
 
-
+document.getElementById("plsceOrderbtn").click();
 
       this._element.clear();
     } else {
@@ -65,7 +65,11 @@ class StripeBox extends Component {
         <CardElement onChange={this.handleChange} onReady={(c) => this._element = c} />
         {this.state.error_message ? <span className="invalid-strip-message"> {this.state.error_message}</span> : ''}
         <span className="col-12 ml-auto">
-          <button id="submit-button" className="mt-6 btn  btn-danger btn-block col-12" onClick={this.submit} disabled={this.props.type === 'invoice' }>Save</button>
+          <br />
+          {/* <button id="submit-button" className="mt-6 btn  btn-danger btn-block col-12" onClick={this.submit} disabled={this.props.type === 'invoice' }>Save</button> */}
+          <label  onClick={this.submit} htmlFor="submit-form" tabIndex="0" className={"place-order-button add-to-cart-button btn btn-primary btn-primary"} >
+          { 'PLACE ORDER'}
+        </label>
         </span>
       </div>
     );

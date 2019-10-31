@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import useReactRouter from 'use-react-router'
-import { Link } from 'react-router-dom'
 
 import {
   // CardElement,
@@ -16,7 +15,6 @@ import Form from 'react-bootstrap/Form'
 import Container from 'react-bootstrap/Container'
 import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
-import Alert from 'react-bootstrap/Alert'
 
 import './Cart.css'
 // import * as ROUTES from '../../constants/routes'
@@ -130,7 +128,7 @@ const BillingDetails = (props) => {
         <Form.Label>Street address *</Form.Label>
         <Form.Control name="streetAddress" required placeholder="House number and street name" defaultValue={(selected) ? selected : ''} />
       </Form.Group> */}
-
+{console.log("vlueshfgh",autoSuggestRef, autoSuggestTheme, selected , firebase)}
       <Form.Group controlId="billingAddress1">
         <Form.Label>Street address *</Form.Label>
         <AutoSuggest
@@ -245,6 +243,9 @@ BillingDetails.propTypes = {
 }
 
 const Order = (props) => {
+  if (props.orderComplete) {
+    localStorage.clear();
+  }
   const firebase = useFirebase()
   return (
     <div>
@@ -252,7 +253,7 @@ const Order = (props) => {
         <p className="cart-item">Discover - Homeowner 	<span style={{ fontWeight: '700' }}>× 1</span> <span className="cart-amount">$0.00</span></p>
         <p className="cart-Subtotal">Subtotal <span className="cart-amount">$0.00</span></p>
         <p className="cart-total">Total <span className="cart-amount">$ { JSON.parse( localStorage.getItem("totalPrice") )}</span></p>
-        <label htmlFor="submit-form" tabIndex="0" className={"place-order-button add-to-cart-button btn btn-primary btn-primary"} >
+        <label id="plsceOrderbtn" style={{display: 'none'}} htmlFor="submit-form" tabIndex="0" className={"place-order-button add-to-cart-button btn btn-primary btn-primary"} >
           {props.orderLoading ? 'Loading...' : 'PLACE ORDER'}
         </label>
         <StripeProvider apiKey="pk_test_gr69jFk1pQjupS7Kd2TO9eIB">
